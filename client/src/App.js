@@ -34,7 +34,7 @@ console.log(user)
       <Routes>
 
         <Route exact path='/' element={ <Home user={user} /> } />
-        <Route exact path='/signup' element={ <Signup /> } />
+        <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
         <Route exact path='/login' element={ <Login user={user} setUser={setUser}/> } />
         <Route exact path='/logout' element={ <Logout /> } />
 
