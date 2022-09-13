@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation";
 function App() {
   const [user, setUser] = useState();
   // const [errors, setErrors] = useState([]);
+  const [randomRecipes, setRandomRecipes] = useState([])
 
   useEffect(() => {
     // authenticating user on page load
@@ -23,17 +24,28 @@ function App() {
           setUser(user);
         });
       }
-    });
+    })
+
+    
+    fetch('https://themealdb.com/api/json/v2/9973533/latest.php')
+      .then(response => response.json())
+      .then(response => setRandomRecipes(response.meals))
+      .catch(err => console.error(err));
   },[]);
 
-console.log(user)
+
+
+
+// console.log(user)
+
+
   return (
     <div className="App">
       <Navigation user={user} setUser={setUser}/>
       <hr/>
       <Routes>
 
-        <Route exact path='/' element={ <Home user={user} /> } />
+        <Route exact path='/' element={ <Home user={user} randomRecipes={randomRecipes}/> } />
         <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
         <Route exact path='/login' element={ <Login user={user} setUser={setUser}/> } />
         <Route exact path='/logout' element={ <Logout /> } />

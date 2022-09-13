@@ -1,16 +1,14 @@
 import React from 'react';
+import RecipeDetailCard from './RecipeDetailCard'
 
 
-
-function Home({user}) {
-console.log(user)
+function Home({ randomRecipes }) {
+console.log(randomRecipes)
     return(
         <>
-
-        <h1>Home</h1>
-        
-        <br/>
-        <p>Welcome..{user ? user.username : ''}</p>
+            {randomRecipes.map(recipe=> (
+                <RecipeDetailCard recipe={recipe} />
+            ))}
         </>
     );
 };
