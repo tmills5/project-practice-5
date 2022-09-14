@@ -18,6 +18,22 @@ class UsersController < ApplicationController
         render json: current_user
     end
 
+    def update
+        current_user = User.find_by!(id: session[:current_user])
+        current_user.update(user_params)
+        render json: current_user
+    end
+
+    def destroy
+        current_user = User.find_by!(id: session[:current_user])
+        if current_user
+            current_user.destroy
+            head :no_content
+        else
+            render json: {error: "User Not Found"}, status: :not_found
+        end
+    end
+
     private
 
     def user_params

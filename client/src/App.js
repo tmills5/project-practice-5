@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import UserDetailsProvider from './context/UserDetailsProvider';
 
 
 import Home from "./components/Home";
@@ -27,7 +28,7 @@ function App() {
     })
 
     
-    fetch('https://themealdb.com/api/json/v2/9973533/latest.php')
+    fetch('/random_recipes')
       .then(response => response.json())
       .then(response => setRandomRecipes(response.meals))
       .catch(err => console.error(err));
@@ -44,12 +45,12 @@ function App() {
       <Navigation user={user} setUser={setUser}/>
       <hr/>
       <Routes>
-
-        <Route exact path='/' element={ <Home user={user} randomRecipes={randomRecipes}/> } />
-        <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
         <Route exact path='/login' element={ <Login user={user} setUser={setUser}/> } />
-        <Route exact path='/logout' element={ <Logout /> } />
 
+          <Route exact path='/' element={ <Home user={user} randomRecipes={randomRecipes}/> } />
+          <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
+          <Route exact path='/logout' element={ <Logout /> } />
+   
       </Routes>
     </div>
   );

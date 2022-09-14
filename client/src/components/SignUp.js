@@ -10,7 +10,7 @@ function Signup( {setUser} ) {
 
   function onSubmit(e){
     e.preventDefault()
-    // navigate('/parks');
+
       let user = {
         email: email,
         username: username,
