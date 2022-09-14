@@ -27,7 +27,7 @@ function Login( {setUser} ) {
           // it in an array
           if(user.error) setErrors(Object.values(user.error))
         })
-        console.log(user)
+
         // console.log(user.error)
         setUsername('');
         setPassword('');

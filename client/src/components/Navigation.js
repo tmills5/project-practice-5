@@ -14,20 +14,14 @@ function Navigation({user, setUser}) {
           );
       }
 
-    const deleteUserAcct = (id) => {
-      fetch(`/users/${id}`, {
-        method: 'DELETE',
-        headers: {'Accept' : 'application/json'}
-      })
-      .then(()=> {setUser()})
-    }
+
       
     return(
         <>
         {user ? 
         <>
-        <p>{user.username}</p>
-        <button onClick={deleteUserAcct}>delete acct</button>
+        <Link to='/users/:id'>{user.username}</Link>
+
         </>
         :
         ''

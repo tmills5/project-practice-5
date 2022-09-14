@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 function Signup( {setUser} ) {
-    const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState([])
