@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     wrap_parameters format: []
 
     def index
-        render json: User.all
+        render json: User.all.order(:id)
     end
 
     def create

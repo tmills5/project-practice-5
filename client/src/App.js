@@ -37,9 +37,6 @@ function App() {
       .catch(err => console.error(err));
   },[]);
 
-
-
-
 // console.log(user)
 
 
@@ -53,7 +50,7 @@ function App() {
         <Route exact path='/' element={ <Home user={user} randomRecipes={randomRecipes}/> } />
         
         <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
-        <Route exact path='/users/:id/edit' element={ <EditUser setUser={setUser} errors={errors} setErrors={setErrors}/> } />
+        <Route exact path='/users/:id/edit' element={ <EditUser user={user} setUser={setUser} navigate={navigate} errors={errors} setErrors={setErrors}/> } />
         <Route exact path='/users/:id' element={ <UserProfile user={user} setUser={setUser} errors={errors} setErrors={setErrors} navigate={navigate}/> } />
    
       </Routes>

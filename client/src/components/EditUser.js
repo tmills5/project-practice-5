@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 
-function EditUser( {user, setUser, errors, setErrors} ) {
-    const [formData, setFormData] = useState( {user} )
-
+function EditUser( {user, setUser, navigate, errors, setErrors} ) {
+    const [formData, setFormData] = useState('')
+// console.log(user)
   const handleUpdateUser = (e) => {
     e.preventDefault()
  
@@ -18,13 +18,16 @@ function EditUser( {user, setUser, errors, setErrors} ) {
       })
       .then(res => res.json())
       .then(updatedUserJson => {
-        console.log(updatedUserJson)
+        // console.log(updatedUserJson)
+        // onUpdateUser(updatedUserJson)
         setUser(updatedUserJson)
+        alert("User Updated!")
+        navigate('/')
         if(updatedUserJson.errors) setErrors(Object.entries(updatedUserJson.errors))
       })
-      console.log(errors)
-      setFormData('');
-  }
+    //   console.log(errors)
+      
+    }
 
   return (
     <div className="container is-fluid">
@@ -33,17 +36,17 @@ function EditUser( {user, setUser, errors, setErrors} ) {
         <form onSubmit={handleUpdateUser} >
         <label>
           Email
-          <input type="text" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
+          <input type="text" defaultValue={user.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
           </label>
           <label>
           Username
-          <input type="text" value={formData.username} onChange={(e) => setFormData({...formData, username: e.target.value})} />
+          <input type="text" defaultValue={user.username} onChange={(e) => setFormData({...formData, username: e.target.value})} />
           </label>
           <label>
           Password
-          <input type="password" value={formData.password} onChange={(e) => setFormData({...formData, password: e.target.value})} />
+          <input type="password" defaultValue={user.password} onChange={(e) => setFormData({...formData, password: e.target.value})} />
           </label>
-          <input type="submit" value="Edit User" />
+          <input type="submit" value="Update User" />
         </form>
         {errors.length > 0 && (
           <ul style={{ color: "red" }}>

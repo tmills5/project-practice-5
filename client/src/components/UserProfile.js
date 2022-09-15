@@ -1,4 +1,5 @@
-import react from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom'
 
 function UserProfile( {user, setUser, navigate} ) {
 
@@ -15,6 +16,7 @@ function UserProfile( {user, setUser, navigate} ) {
         <>
         <h1>{user.username}</h1>
         <button onClick={deleteUserAcct}>delete acct</button>
+        <Link to='/users/:id/edit'>update acct</Link>
         </>
     )
 };

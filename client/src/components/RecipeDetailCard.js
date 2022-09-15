@@ -77,6 +77,7 @@ function RecipeDetailCard( {recipe} ) {
         <a href={strYoutube}>
           <YouTubeIcon />
         </a>
+        
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -102,6 +103,7 @@ function RecipeDetailCard( {recipe} ) {
           <Typography>
             miore stuff
           </Typography>
+          <a href={strSource}>Source</a>
         </CardContent>
       </Collapse>
     </Card>
