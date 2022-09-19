@@ -16,6 +16,7 @@ function App() {
   const [user, setUser] = useState('');
   const [errors, setErrors] = useState([]);
   const [randomRecipes, setRandomRecipes] = useState([])
+  const [categories, setCategories] = useState([])
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,6 +36,11 @@ function App() {
       .then(response => response.json())
       .then(response => setRandomRecipes(response.meals))
       .catch(err => console.error(err));
+
+    fetch('/categories')
+      .then(response => response.json())
+      .then(response => setCategories(response.categories))
+      .catch(err => console.error(err));
   },[]);
 
 // console.log(user)
@@ -47,7 +53,7 @@ function App() {
       <Routes>
         <Route exact path='/login' element={ <Login user={user} setUser={setUser}/> } />
         <Route exact path='/logout' element={ <Logout /> } />
-        <Route exact path='/' element={ <Home user={user} randomRecipes={randomRecipes}/> } />
+        <Route exact path='/' element={ <Home user={user} randomRecipes={randomRecipes} categories={categories}/> } />
         
         <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
         <Route exact path='/users/:id/edit' element={ <EditUser user={user} setUser={setUser} navigate={navigate} errors={errors} setErrors={setErrors}/> } />

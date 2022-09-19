@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
+  resources :breweries
+
   resources :users
 
+  # resources :posts do
+  #   resources :comments
+  # end
 
-
-
-  resources :recipes
-  get '/random_recipes', to: "recipes#get_random_meals"
+  resources :posts
+  resources :comments
   
+  
+  
+
+
 
   
 
