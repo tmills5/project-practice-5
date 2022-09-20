@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   resources :breweries
 
+  # post '/search_breweries', to: 'breweries#search_breweries'
+
+
   resources :users
 
-  # resources :posts do
-  #   resources :comments
-  # end
+  resources :posts do
+    resources :comments
+  end
 
-  resources :posts
+  # resources :posts
+
   resources :comments
   
   

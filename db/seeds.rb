@@ -7,8 +7,7 @@ Brewery.destroy_all
 Post.destroy_all
 
 
-
-puts "Seeding Users.."
+puts "Seeding Users..---------------------------"
 
 User.create(
   email: "ty@gmail.com",
@@ -25,20 +24,31 @@ User.create(
     )
   end
 
-  puts "Seeding Comments..."
 
-  20.times do
-    Comment.create(
-      user_id: rand(1..6),
-      post_id: rand(1..10),
-      comment_body: "Well, hello there..."
-    )
-  end
+puts "Seeding Posts....--------------------------"
 
-puts "Seeding Breweries.."
+10.times do
+  Post.create(
+    user_id: rand(1..6),
+    post_title: Faker::Lorem.words(number: 3),
+    post_content: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false) 
+  )
+end
+
+puts "Seeding Comments...------------------------"
+
+20.times do
+  Comment.create!(
+    user_id: rand(1..6),
+    post_id: rand(1..10),
+    comment_body: "Well, hello there..."
+  )
+end
+
+puts "Seeding Breweries...------------------------"
 
 def brewery_dataset
-  response = RestClient.get('https://api.openbrewerydb.org/breweries', headers: {'Content-Type': 'application/json'})
+  response = RestClient.get('https://api.openbrewerydb.org/breweries?by_state=mississippi&per_page=50', headers: {'Content-Type': 'application/json'})
   json = JSON.parse(response)
 
   json.each do |brewery|
@@ -53,22 +63,10 @@ def brewery_dataset
       phone: brewery["phone"],
       website_url: brewery["website_url"]
       )
-    end
+  end
 end
 
 brewery_dataset()
 
 
-
-
-puts "Seeding Posts...."
-
-10.times do
-  Post.create(
-    user_id: rand(1..6),
-    post_title: Faker::Lorem.words(number: 3).upcase,
-    post_content: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false) 
-  )
-end
-
-puts ".....Done"
+puts ".....Done......"

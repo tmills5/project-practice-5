@@ -1,5 +1,19 @@
 class PostsController < ApplicationController
     def index
-        render json: Post.all
+        posts = Post.all
+        render json: posts
     end
+
+
+    def show
+        post = Post.find(params[:id])
+        render json: post, status: :ok
+    end
+
+
+
+
+
+
+    
 end

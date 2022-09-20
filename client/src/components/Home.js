@@ -1,41 +1,82 @@
 import React from 'react';
-// import RecipeDetailCard from './RecipeDetailCard'
+import BreweryCard from './BreweryCard';
+import PostShow from './PostShow';
+import { BreweryConsumer } from './context/BreweryContext';
+import { PostsConsumer } from './context/PostsContext';
+
+function Home() {
+
+    // console.log(breweries)
+    // const [breweryQuery, setBreweryQuery] = useState('');
+
+    // const breweryQueryArray = !breweryQuery ? breweries : [...breweries].filter(brewery=>
+    //     brewery.full_name.toLowerCase().includes(breweryQuery.toLocaleLowerCase()))
+
+    // const searchObj = {
+    //     breweryQuery: breweryQuery
+    // }
+
+    // function onClick() {
+    // // console.log(searchObj)
+    // fetch('/search_breweries',{
+    //     method:'POST',
+    //     headers: {'Content-Type': 'application/json'},
+    //     body:JSON.stringify(searchObj)
+    //   })
+    //   .then(res => res.json())
+    //   .then(res => {console.log(res)})
+    // }
 
 
-function Home({ randomRecipes, categories }) {
-console.log(randomRecipes)
-console.log(categories)
-    return(
-        // <div>
-        //     {randomRecipes.map(recipe=> (
-        //         <RecipeDetailCard recipe={recipe} key={recipe.idMeal} />
-        //     ))}
-        // </div>
+
+    return (
         <>
-        random recipes
-            <ul>
-            {randomRecipes.map(recipe=> (
-                <li>
-                    <a href=''>{recipe.strMeal}</a>
-                </li>
-            ))}
-            </ul>
+            <BreweryConsumer>
+            {BreweryContext => //console.log(BreweryContext)
+                <>
+                    {BreweryContext.map(brewery=> (
+                        <BreweryCard brewery={brewery}/> )
+                    )}
+                </>
+            }
 
+            </BreweryConsumer>
             <hr/>
-
-        category list
-            <ul>
-            {categories.map(category=> (
-                <li>
-                    <a href=''>{category.strCategory}</a>
-                    <p>{category.strCategoryDescription}</p>
-                </li>
-                ))}
-
-            </ul>
+            <PostsConsumer>
+                {PostsContext => //console.log(PostsContext)
+                    PostsContext.map(post=> (
+                        <PostShow post={post}/>
+                    ))
+                }
+            </PostsConsumer>
         </>
-
     );
 };
 
 export default Home;
+
+            // {/* {breweries.map(brewery=> (
+            //     <BreweryDetail brewery={brewery}/>
+            // ))} */}
+
+
+            // {/* <label>
+            //     Search Breweries
+            //     <input
+            //         type="text"
+            //         placeholder="Search for breweries..." 
+            //         value={breweryQuery} 
+            //         onChange={(e)=> setBreweryQuery(e.target.value)}
+            //     />
+            //     <button onClick={()=>onClick(searchObj)}>Submit</button>
+            // </label> */}
+
+          
+
+            // {/* <div>
+            //     {breweryQueryArray.map(brewery=> (
+            //         <div>
+            //             {brewery.name}
+            //         </div>
+            //     ))}
+            // </div> */}
