@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate} from 'react-router-dom';
 
 
-import Home from "./components/Home";
+import LandingPage from "./components/LandingPage";
+import Breweries from "./components/Breweries";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Signup from "./components/SignUp";
@@ -51,12 +52,12 @@ function App() {
     <div className="App">
 
       <Navigation user={user} setUser={setUser}/>
-      <hr/>
+
       <Routes>
         <Route exact path='/login' element={ <Login user={user} setUser={setUser}/> } />
         <Route exact path='/logout' element={ <Logout /> } />
-        <Route exact path='/' element={ <Home user={user} /> } />
-        
+        <Route exact path='/' element={ <LandingPage user={user} /> } />
+        <Route exact path='/breweries' element={ <Breweries />} />
         <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
         <Route exact path='/users/:id/edit' element={ <EditUser user={user} setUser={setUser} navigate={navigate} errors={errors} setErrors={setErrors}/> } />
         <Route exact path='/users/:id' element={ <UserProfile user={user} setUser={setUser} errors={errors} setErrors={setErrors} navigate={navigate}/> } />

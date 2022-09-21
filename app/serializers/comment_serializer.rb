@@ -1,6 +1,6 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :post_id, :comment_body
+  attributes :id, :comment_body, :user_id, :brewery_id
 
-  belongs_to :post
   belongs_to :user
+  belongs_to :brewery
 end

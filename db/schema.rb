@@ -25,23 +25,14 @@ ActiveRecord::Schema.define(version: 2022_09_16_011615) do
     t.string "country"
     t.string "phone"
     t.string "website_url"
-    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
     t.text "comment_body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.string "post_title"
-    t.text "post_content"
+    t.integer "brewery_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

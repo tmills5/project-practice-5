@@ -10,7 +10,6 @@ class CreateBreweries < ActiveRecord::Migration[6.1]
       t.string :country
       t.string :phone
       t.string :website_url
-      t.integer :comment_id
 
       t.timestamps
     end

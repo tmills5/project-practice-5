@@ -61,6 +61,7 @@ function Signup( {setUser} ) {
           </ul>
         )}
       </div>
+      <img src="https://images.pexels.com/photos/5055743/pexels-photo-5055743.jpeg?auto=compress&cs=tinysrgb&w=1600" alt='cheers'/>
     </div>
   )
 }

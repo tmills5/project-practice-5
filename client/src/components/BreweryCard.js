@@ -122,13 +122,13 @@ function BreweryCard({ brewery }) {
   return(
     <>
       <Card title={name} extra={<a href="/">More</a>} style={{ width: 300 }}>
-
         <p>{brewery_type}</p>
         <p>{street}</p>
         <p>{city}</p>
         <p>{state}</p>
         <p>{phone}</p>
         <p>{website_url}</p>
+        <hr/>
       </Card>
     </>
   )

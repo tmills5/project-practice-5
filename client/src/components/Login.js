@@ -36,28 +36,59 @@ function Login( {setUser} ) {
 
         
     return (
-      <div className="container is-fluid">
-        <div className="notification is-primary">
-        <h1>Log In..</h1>
-          <form onSubmit={onSubmit}>
-            <label>
-              username
-              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-            </label>
+      // <div className="container is-fluid">
+      //   <div className="notification is-primary">
+      //   <h1>Log In..</h1>
+      //     <form onSubmit={onSubmit}>
+      //       <label>
+      //         username
+      //         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+      //       </label>
 
-            <label>
-              Password
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <input type="submit" value="Login" />
-          </form>
+      //       <label>
+      //         Password
+      //       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      //       </label>
+      //       <input type="submit" value="Login" />
+      //     </form>
 
-          {<p style={{ color: "red" }}>
-            {errors}
-          </p>}
+      //     {<p style={{ color: "red" }}>
+      //       {errors}
+      //     </p>}
   
-        </div>
-      </div>
+      //   </div>
+      // </div>
+      <div className="login-parent">
+      <div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="email" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope">👤</i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock">🔑</i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success" onClick={onSubmit}>
+      Login
+    </button>
+  </p>
+     {<p style={{ color: "red" }}>
+        {errors}
+     </p>}
+</div>
+</div>
     );
 }
 

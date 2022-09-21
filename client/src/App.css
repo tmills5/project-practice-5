@@ -1,4 +1,9 @@
 .App {
-  text-align: center;
+    height: 100%;
+    width: auto;
+}
 
+.login-parent {
+    background: url("https://images.pexels.com/photos/1267700/pexels-photo-1267700.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    min-height: 100%;
 }

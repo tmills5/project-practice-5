@@ -12,7 +12,7 @@ const PostsProvider = (props) => {
           if (response.ok) {
             response.json()
             .then(data=> {
-              console.log("PostsContext fetch posts: ", data)
+              // console.log("PostsContext fetch posts: ", data)
               setPosts(data)
             });
           }

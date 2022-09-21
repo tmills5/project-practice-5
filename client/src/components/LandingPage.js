@@ -1,11 +1,14 @@
 import React from 'react';
 import BreweryCard from './BreweryCard';
-import PostShow from './PostShow';
+// import PostShow from './PostShow';
 import { BreweryConsumer } from './context/BreweryContext';
-import { PostsConsumer } from './context/PostsContext';
+// import { PostsConsumer } from './context/PostsContext';
 
-function Home() {
+//styling
 
+
+
+function LandingPage() {
     // console.log(breweries)
     // const [breweryQuery, setBreweryQuery] = useState('');
 
@@ -31,29 +34,32 @@ function Home() {
 
     return (
         <>
-            <BreweryConsumer>
-            {BreweryContext => //console.log(BreweryContext)
-                <>
-                    {BreweryContext.map(brewery=> (
-                        <BreweryCard brewery={brewery}/> )
-                    )}
-                </>
-            }
-
-            </BreweryConsumer>
-            <hr/>
-            <PostsConsumer>
-                {PostsContext => //console.log(PostsContext)
-                    PostsContext.map(post=> (
-                        <PostShow post={post}/>
-                    ))
-                }
-            </PostsConsumer>
+            <img src='https://images.pexels.com/photos/7893801/pexels-photo-7893801.jpeg?auto=compress&cs=tinysrgb&w=1600' alt='friends with beer'/>
         </>
+        // <>
+        //     <BreweryConsumer>
+        //     {BreweryContext => 
+        //         <>
+        //             {BreweryContext.map(brewery=> (
+        //                 <BreweryCard brewery={brewery}/> )
+        //             )}
+        //         </>
+        //     }
+
+        //     </BreweryConsumer>
+        //     <hr/>
+        //     <PostsConsumer>
+        //         {PostsContext => 
+        //             PostsContext.map(post=> (
+        //                 <PostShow post={post}/>
+        //             ))
+        //         }
+        //     </PostsConsumer>
+        // </>
     );
 };
 
-export default Home;
+export default LandingPage;
 
             // {/* {breweries.map(brewery=> (
             //     <BreweryDetail brewery={brewery}/>
