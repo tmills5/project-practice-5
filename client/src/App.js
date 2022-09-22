@@ -30,20 +30,6 @@ function App() {
         });
       }
     })
-
-    
-    // fetch('/breweries')
-    //   .then(response => {
-    //     if (response.ok) {
-    //       response.json()
-    //       .then(data=> {
-    //         console.log("App.js fetch breweries: ", data)
-    //         setBreweries(data)
-    //       });
-    //     }
-    //   })
-    //   .catch(err => console.error(err));
-
   },[]);
 
 // console.log(breweries)

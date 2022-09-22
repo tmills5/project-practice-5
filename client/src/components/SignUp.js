@@ -39,18 +39,9 @@ function Signup( {setUser} ) {
       <div className="notification is-primary">
         <h1>Sign Up!!</h1>
         <form onSubmit={onSubmit} >
-        <label>
-          Email
-          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <label>
-          Username
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-          </label>
-          <label>
-          Password
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </label>
+          <input type="text" placeholder="Email..." value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="text" placeholder="Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="password" placeholder="Password..." value={password} onChange={(e) => setPassword(e.target.value)} />
           <input type="submit" value="Sign up!" />
         </form>
         {errors.length > 0 && (
