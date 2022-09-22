@@ -14,9 +14,12 @@ function UserProfile( {user, setUser, navigate} ) {
 
     return(
         <>
-        <h1>{user.username}</h1>
-        <button onClick={deleteUserAcct}>delete acct</button>
-        <Link to='/users/:id/edit'>update acct</Link>
+          <figure class="image is-128x128">
+            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+          </figure>
+            <h1>{user.username}</h1>
+            <button onClick={deleteUserAcct}>delete acct</button>
+          <Link to='/users/:id/edit'>update acct</Link>
         </>
     )
 };

@@ -1,12 +1,13 @@
 class BreweriesController < ApplicationController
     def index
-        render json: Brewery.all
+        breweries = Brewery.all
+        render json: breweries, include: ['comments', 'comment.user.username']
     end
 
     def show
         brewery = find_brewery
         if brewery
-        render json: brewery, status: :ok
+        render json: brewery
         else
         render json: {error: "Brewery Not Found"}, status: :not_found
         end

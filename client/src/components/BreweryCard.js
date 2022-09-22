@@ -1,136 +1,69 @@
-import * as React from 'react';
-// import { styled } from '@mui/material/styles';
-// import Card from '@mui/material/Card';
-// import CardHeader from '@mui/material/CardHeader';
-// import CardMedia from '@mui/material/CardMedia';
-// import CardContent from '@mui/material/CardContent';
-// import CardActions from '@mui/material/CardActions';
-// import Collapse from '@mui/material/Collapse';
-// import Avatar from '@mui/material/Avatar';
-// import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import { red } from '@mui/material/colors';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-// import YouTubeIcon from '@mui/icons-material/YouTube';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import MoreVertIcon from '@mui/icons-material/MoreVert';
-
-// interface ExpandMoreProps extends IconButtonProps {
-//   expand: boolean;
-// }
-
-// const ExpandMore = styled((props: ExpandMoreProps) => {
-//   const { expand, ...other } = props;
-//   return <IconButton {...other} />;
-// })(({ theme, expand }) => ({
-//   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-//   marginLeft: 'auto',
-//   transition: theme.transitions.create('transform', {
-//     duration: theme.transitions.duration.shortest,
-//   }),
-// }));
-
-// function RecipeDetailCard( {brewery} ) {
-//   const [expanded, setExpanded] = React.useState(false);
-//   const {name, state} = brewery
-
-
-//   const handleExpandClick = () => {
-//     setExpanded(!expanded);
-//   };
-
-//   return (
-//     <Card sx={{ maxWidth: 345 }}>
-//       <CardHeader
-//         avatar={
-//           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-//             fstR
-//           </Avatar>
-//         }
-//         action={
-//           <IconButton aria-label="settings">
-//             <MoreVertIcon />
-//           </IconButton>
-//         }
-//         title={brewery.name}
-//         // subheader={strCategory}
-//       />
-//       <CardMedia
-//         component="img"
-//         height="194"
-//         // image={strMealThumb}
-//         // alt={strMeal}
-//       />
-//       <CardContent>
-//         <Typography variant="body2" color="text.secondary">
-//         {/* Region: {strArea} */}
-
-//         </Typography>
-//       </CardContent>
-//       <CardActions disableSpacing>
-//         <IconButton aria-label="add to favorites">
-//           <FavoriteIcon />
-//         </IconButton>
-//         {/* <IconButton aria-label="share">
-//           <YouTubeIcon href={strYoutube}/>
-//         </IconButton> */}
-//         {/* <a href={strYoutube}> */}
-//           {/* <YouTubeIcon /> */}
-//         {/* </a> */}
-        
-//         <ExpandMore
-//           expand={expanded}
-//           onClick={handleExpandClick}
-//           aria-expanded={expanded}
-//           aria-label="show more"
-//         >
-//           <ExpandMoreIcon />
-//         </ExpandMore>
-//       </CardActions>
-//       <Collapse in={expanded} timeout="auto" unmountOnExit>
-//         <CardContent>
-//           {/* <Typography paragraph>Method:</Typography> */}
-//           <Typography paragraph>
-//           Instructions: <br/>
-//           {/* {strInstructions} */}
-//           </Typography>
-//           <Typography paragraph>
-//           stufff
-//           </Typography>
-//           <Typography paragraph>
-//             {/* {strInstructions} */}
-//           </Typography>
-//           <Typography>
-//             miore stuff
-//           </Typography>
-//           {/* <a href={strSource}>Source</a> */}
-//         </CardContent>
-//       </Collapse>
-//     </Card>
-//   );
-// }
-
-// export default RecipeDetailCard;
-
-
-import { Card } from 'antd';
+import React from 'react';
+// import { Section, Card } from 'bulma';
 
 function BreweryCard({ brewery }) {
-  // console.log(brewery)
-  const { name, brewery_type, street, city, state, phone, website_url } = brewery
+  console.log(brewery)
+  console.log(brewery.comments)
+  const { id, name, brewery_type, street, city, state, phone, website_url } = brewery
+
+
 
   return(
-    <>
-      <Card title={name} extra={<a href="/">More</a>} style={{ width: 300 }}>
-        <p>{brewery_type}</p>
-        <p>{street}</p>
-        <p>{city}</p>
-        <p>{state}</p>
-        <p>{phone}</p>
-        <p>{website_url}</p>
-        <hr/>
-      </Card>
-    </>
+    <div className='section'>
+      <div className='container'>
+      <div class="card">
+  <div class="card-image">
+
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder"/>
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{name}</p>
+        <p class="subtitle is-6">{street}
+        <br/>
+        {city}, {state}
+        </p>
+        <p>{phone}</p>        
+        <p>Brewery Type: {brewery_type}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. <a href={`/breweries/${id}`}>More...</a>.
+      <br/>
+      <a href={website_url}>{website_url}</a>
+    </div>
+  </div>
+  {/* <article class="message">
+  <div class="message-body">
+    Comments: {brewery.comments.map(comment=> (
+          <>
+            <li key={comment.id}>{comment.comment_body}<button>Edit</button></li>
+          </>
+            ))}
+  </div>
+</article> */}
+</div>
+        {/* <Card title={name} extra={<a href="/">More</a>} style={{ width: 300 }}>
+          <p>{brewery_type}</p>
+          <p>{street}</p>
+          <p>{city}</p>
+          <p>{state}</p>
+          <p>{phone}</p>
+          <br/>
+          <p>{website_url}</p>
+          <p>Leave a Comment:</p>
+            {}
+          <hr/>
+        </Card> */}
+      </div>
+    </div>
   )
 };
 

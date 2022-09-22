@@ -22,7 +22,7 @@ function EditUser( {user, setUser, navigate, errors, setErrors} ) {
         // onUpdateUser(updatedUserJson)
         setUser(updatedUserJson)
         alert("User Updated!")
-        navigate('/')
+        navigate('/users/:id')
         if(updatedUserJson.errors) setErrors(Object.entries(updatedUserJson.errors))
       })
     //   console.log(errors)

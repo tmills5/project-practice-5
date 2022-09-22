@@ -48,15 +48,15 @@ User.create(
   
   brewery_dataset()
 
-# puts "Seeding Posts....--------------------------"
+#  puts "Seeding Posts....--------------------------"
 
-# 10.times do
+#  10.times do
 #   Post.create(
-#     user_id: rand(1..6),
-#     post_title: Faker::Lorem.words(number: 3),
-#     post_content: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false) 
-#   )
-# end
+#       post_title: Faker::Lorem.words(number: 3),
+#       post_content: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
+#      user_id: rand(1..6)
+#    )
+#   end
 
 
 

@@ -58,9 +58,9 @@ function Navigation({user, setUser}) {
         Breweries
       </a>
 
-      <a class="navbar-item">
+      {/* <a class="navbar-item">
         Explore
-      </a>
+      </a> */}
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -74,7 +74,7 @@ function Navigation({user, setUser}) {
           <a class="navbar-item">
             Contact
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href='/users/:id'>
             User Profile
           </a>
           <hr class="navbar-divider"/>

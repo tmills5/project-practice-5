@@ -1,24 +1,14 @@
 Rails.application.routes.draw do
-  resources :breweries
-
+  resources :breweries, only: [:show, :index]
   # post '/search_breweries', to: 'breweries#search_breweries'
-
-
-  resources :users
-
-  resources :posts do
-    resources :comments
-  end
-
-  # resources :posts
-
   resources :comments
   
-  
-  
+  resources :users
 
-
-
+  resources :breweries, only: [:show] do
+    resources :comments, only: [:show, :index] do 
+  end
+end
   
 
 #logging in and logging out
