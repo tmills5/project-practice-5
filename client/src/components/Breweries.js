@@ -1,9 +1,11 @@
 import React from 'react';
 import { BreweryConsumer } from './context/BreweryContext';
-import BreweryCard from './BreweryCard'
-function Breweries() {
+import BreweryCard from './BreweryCard';
+
+function Breweries( {user} ) {
     return (
         <>
+            {user ? 
             <BreweryConsumer>
              {BreweryContext => 
                  <>
@@ -13,6 +15,8 @@ function Breweries() {
                  </>
                 }
             </BreweryConsumer>
+            :
+            <div>Please Login or Sign up...</div>}
         </>
     )
 }

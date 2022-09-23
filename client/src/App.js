@@ -41,10 +41,11 @@ function App() {
       <Navigation user={user} setUser={setUser}/>
 
       <Routes>
+        <Route exact path='/' element={ <LandingPage user={user} /> } />
         <Route exact path='/login' element={ <Login user={user} setUser={setUser} navigate={navigate}/> } />
         <Route exact path='/logout' element={ <Logout /> } />
-        <Route exact path='/' element={ <LandingPage user={user} /> } />
-        <Route exact path='/breweries' element={ <Breweries />} />
+        
+        <Route exact path='/breweries' element={ <Breweries user={user} />} />
         <Route exact path='/breweries/:id' element={ <BreweryDetail />} />
         <Route exact path='/signup' element={ <Signup setUser={setUser}/> } />
         <Route exact path='/users/:id/edit' element={ <EditUser user={user} setUser={setUser} navigate={navigate} errors={errors} setErrors={setErrors}/> } />

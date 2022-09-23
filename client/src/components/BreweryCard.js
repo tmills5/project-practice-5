@@ -1,10 +1,10 @@
 import React from 'react';
-// import { Section, Card } from 'bulma';
+// import { BreweryConsumer } from './context/BreweryContext';
 
-function BreweryCard({ brewery }) {
-  console.log(brewery)
-  console.log(brewery.comments)
-  const { id, name, brewery_type, street, city, state, phone, website_url } = brewery
+function BreweryCard( {brewery} ) {
+  // console.log(brewery)
+  // console.log(brewery.comments)
+  const { id, name, brewery_type, website_url } = brewery;
 
 
 
@@ -24,11 +24,7 @@ function BreweryCard({ brewery }) {
       </div>
       <div class="media-content">
         <p class="title is-4">{name}</p>
-        <p class="subtitle is-6">{street}
-        <br/>
-        {city}, {state}
-        </p>
-        <p>{phone}</p>        
+        
         <p>Brewery Type: {brewery_type}</p>
       </div>
     </div>
@@ -50,18 +46,6 @@ function BreweryCard({ brewery }) {
   </div>
 </article> */}
 </div>
-        {/* <Card title={name} extra={<a href="/">More</a>} style={{ width: 300 }}>
-          <p>{brewery_type}</p>
-          <p>{street}</p>
-          <p>{city}</p>
-          <p>{state}</p>
-          <p>{phone}</p>
-          <br/>
-          <p>{website_url}</p>
-          <p>Leave a Comment:</p>
-            {}
-          <hr/>
-        </Card> */}
       </div>
     </div>
   )

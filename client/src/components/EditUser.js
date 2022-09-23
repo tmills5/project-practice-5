@@ -20,7 +20,7 @@ function EditUser( {user, setUser, navigate, errors, setErrors} ) {
       .then(updatedUserJson => {
         // console.log(updatedUserJson)
         // onUpdateUser(updatedUserJson)
-        setUser(updatedUserJson)
+        setUser(updatedUserJson);
         alert("User Updated!")
         navigate('/users/:id')
         if(updatedUserJson.errors) setErrors(Object.entries(updatedUserJson.errors))

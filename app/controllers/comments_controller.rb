@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+    wrap_parameters format: []
+
+    
     def index
         if params[:brewery_id]
             brewery = Brewery.find(params[:brewery_id])
@@ -17,4 +20,14 @@ class CommentsController < ApplicationController
             render json: {error: "Comment Not Found"}, status: :not_found
         end
     end
+
+    # def create
+    #     comment = Comment.create!(comment_params)
+    # end
+
+    private
+
+    def comment_params
+        params.permit(:comment_body, user_id:, brewery_id:)
+    end 
 end

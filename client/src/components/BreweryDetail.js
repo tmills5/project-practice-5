@@ -49,15 +49,15 @@ function BreweryDetail() {
         <a href={website_url}>{website_url}</a>
       </div>
     </div>
-    {/* <article class="message">
+    <article class="message">
     <div class="message-body">
-      Comments: {brewery.comments.map(comment=> (
+      {/* Comments: {brewery.comments.map(comment => (
             <>
               <li key={comment.id}>{comment.comment_body}<button>Edit</button></li>
             </>
-              ))}
+              ))} */}
     </div>
-  </article> */}
+  </article>
   </div>
           {/* <Card title={name} extra={<a href="/">More</a>} style={{ width: 300 }}>
             <p>{brewery_type}</p>

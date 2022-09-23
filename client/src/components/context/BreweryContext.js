@@ -12,7 +12,7 @@ const BreweryProvider = (props) => {
           if (response.ok) {
             response.json()
             .then(data=> {
-              console.log("BreweryContext fetch breweries: ", data)
+              // console.log("BreweryContext fetch breweries: ", data)
               setBreweries(data)
             });
           }

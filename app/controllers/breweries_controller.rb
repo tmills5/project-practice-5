@@ -1,4 +1,6 @@
 class BreweriesController < ApplicationController
+    wrap_parameters format: []
+    
     def index
         breweries = Brewery.all
         render json: breweries, include: ['comments', 'comment.user.username']
